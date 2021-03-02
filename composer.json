@@ -1,0 +1,33 @@
+{
+    "name": "siteation/magento2-module-storeinfo",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "magento2-module",
+    "description": "Get your store information with ease",
+    "readme": "README.md",
+    "keywords": [
+        "magento2",
+        "magento2-module",
+        "Address",
+        "email",
+        "phone"
+    ],
+    "authors": [
+        {
+            "name": "Siteation",
+            "email": "info@siteation.nl",
+            "homepage": "https://www.siteation.nl"
+        }
+    ],
+    "require": {
+        "magento/framework": "^102.0|^103.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Siteation\\StoreInfo\\": ""
+        }
+    }
+}
