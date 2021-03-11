@@ -28,7 +28,7 @@ class StoreInfo implements ArgumentInterface
      * @param string $attribute
      * @return mixed
      */
-    private function getStoreInfo(string $attribute)
+    public function getStoreInfo(string $attribute)
     {
         $path = sprintf('general/store_information/%s', $attribute);
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
@@ -40,7 +40,7 @@ class StoreInfo implements ArgumentInterface
      * @param string $attribute
      * @return mixed
      */
-    private function getTransEmail(string $attribute)
+    public function getTransEmail(string $attribute)
     {
         $path = sprintf('trans_email/ident_general/%s', $attribute);
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
