@@ -61,7 +61,7 @@ in your template.
     <block
         name="footer.store.info"
         as="footer-store-info"
-        template="Siteation_StoreInfo::luma/store-address.phtml"
+        template="Siteation_StoreInfo::hyva/store-address.phtml"
     />
 </referenceContainer>
 ```
