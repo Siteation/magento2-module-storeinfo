@@ -68,10 +68,10 @@ in your template.
 
 ### Get Store info in your own block.
 
-First get the viewmodal in you template.
+First get the viewmodal in your template.
 
 _See the previous sample for the xml solution._
-_And the `store-address.phtml` for how to call it._
+_And the `store-address.phtml` for on how to call the viewmodal._
 
 By default you can get the following the basic contact data
 found in `general/store_information` and `trans_email/ident_general`.
