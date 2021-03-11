@@ -2,7 +2,7 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/siteation/magento2-module-storeinfo)](https://packagist.org/packages/siteation/magento2-module-storeinfo)
 ![Supported Magento Versions](https://img.shields.io/badge/magento-%202.3_|_2.4-brightgreen.svg?logo=magento&longCache=true)
-![Compatible with Hyva](https://img.shields.io/badge/Compatible_with-Hyva-3df0af.svg?longCache=true)
+[![Compatible with Hyva](https://img.shields.io/badge/Compatible_with-Hyva-3df0af.svg?longCache=true)](https://hyva.io/)
 
 This Magento 2 module add the option to get the store info with ease.
 
