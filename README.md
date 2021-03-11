@@ -23,7 +23,7 @@ Instead using static block or hard code it in your template directly.
 Install the package via;
 
 ```bash
-composer require @siteation/magento2-module-storeinfo
+composer require siteation/magento2-module-storeinfo
 bin/magento setup:upgrade
 ```
 
