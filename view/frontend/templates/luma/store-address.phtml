@@ -1,0 +1,38 @@
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+/** @var Siteation\StoreInfo\ViewModel\StoreInfo $storeInfo */
+$storeInfo = $block->getData('viewModelStoreInfo');
+?>
+
+<address class="storeinfo not-italic">
+    <?php if ($phone = $storeInfo->getPhoneNumber()): ?>
+        <a class="phone" href="tel:<?= $escaper->escapeHtml($phone); ?>"><?= $escaper->escapeHtml($phone); ?></a><br>
+    <?php endif; ?>
+    <?php if ($email = $storeInfo->getEmailUs()): ?>
+        <a class="email" href="mailto:<?= $escaper->escapeHtml($email); ?>"><?= $escaper->escapeHtml($email); ?></a><br>
+    <?php endif; ?>
+
+    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
+            <span itemprop="streetAddress">
+                <span class="street-address-1"><?= $escaper->escapeHtml($address1); ?></span>
+                <?php if ($address2 = $storeInfo->getStreetLine2()): ?>
+                    <span class="street-address-2"><?= $escaper->escapeHtml($address2); ?></span>
+                <?php endif; ?>
+            </span><br>
+        <?php endif; ?>
+        <?php if ($postcode = $storeInfo->getPostcode()): ?>
+            <span class="postcode" itemprop="streetAddress"><?= $escaper->escapeHtml($postcode); ?></span>
+        <?php endif; ?>
+        <?php if ($city = $storeInfo->getCity()): ?>
+            <span class="city" itemprop="addressLocality"><?= $escaper->escapeHtml($city); ?></span>
+        <?php endif; ?>
+    </span>
+</address>
