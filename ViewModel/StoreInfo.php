@@ -85,4 +85,10 @@ class StoreInfo implements ArgumentInterface
     {
         return (string) $this->getStoreInfo('street_line2');
     }
+
+    /** @deprecated use `getEmail` instead, will be removed in v2 */
+    public function getEmailUs(): string
+    {
+        return (string) $this->getTransEmail('email');
+    }
 }

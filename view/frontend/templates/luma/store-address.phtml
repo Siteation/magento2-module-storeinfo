@@ -15,7 +15,7 @@ $storeInfo = $block->getData('viewModelStoreInfo');
     <?php if ($phone = $storeInfo->getPhoneNumber()): ?>
         <a class="phone" href="tel:<?= $escaper->escapeHtml($phone); ?>"><?= $escaper->escapeHtml($phone); ?></a><br>
     <?php endif; ?>
-    <?php if ($email = $storeInfo->getEmailUs()): ?>
+    <?php if ($email = $storeInfo->getEmail()): ?>
         <a class="email" href="mailto:<?= $escaper->escapeHtml($email); ?>"><?= $escaper->escapeHtml($email); ?></a><br>
     <?php endif; ?>
 
