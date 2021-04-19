@@ -51,7 +51,7 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('phone');
     }
 
-    public function getEmailUs(): string
+    public function getEmail(): string
     {
         return (string) $this->getTransEmail('email');
     }
