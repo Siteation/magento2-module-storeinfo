@@ -9,15 +9,6 @@ This Magento 2 module add the option to get the store info with ease.
 So you can get the store phone number from the Stores > Config.
 Instead using static block or hard code it in your template directly.
 
-<details><summary><strong>TOC</strong></summary>
-
-- [Installation](#installation)
-- [How to use](#how-to-use)
-  - [Get address block](#get-address-block)
-  - [Get Store info in your own block.](#get-store-info-in-your-own-block)
-
-</details>
-
 ## Installation
 
 Install the package via;
@@ -36,10 +27,10 @@ By defaut this module loads nothing.
 
 Use one of the samples to get started.
 
-### Get address block
+### Adding a address block
 
 We have made an address block that uses the store information.
-And also comes [schema tags](https://schema.org/) to enrich the Contact data.
+And also comes with [schema tags](https://schema.org/) to enrich the Contact data.
 
 To load the default store address block use 1 of the following xml samples
 in your template.
