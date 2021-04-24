@@ -6,19 +6,15 @@ namespace Siteation\StoreInfo\ViewModel;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 
 class StoreInfo implements ArgumentInterface
 {
-    protected $_urlInterface;
     protected $scopeConfig;
 
     public function __construct(
-        UrlInterface $urlInterface,
         ScopeConfigInterface $scopeConfig
     ) {
-        $this->_urlInterface = $urlInterface;
         $this->scopeConfig = $scopeConfig;
     }
 
