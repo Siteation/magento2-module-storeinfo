@@ -29,7 +29,7 @@ $storeInfo = $block->getData('viewModelStoreInfo');
             </span><br>
         <?php endif; ?>
         <?php if ($postcode = $storeInfo->getPostcode()): ?>
-            <span class="postcode" itemprop="streetAddress"><?= $escaper->escapeHtml($postcode); ?></span>
+            <span class="postcode" itemprop="postalCode"><?= $escaper->escapeHtml($postcode); ?></span>
         <?php endif; ?>
         <?php if ($city = $storeInfo->getCity()): ?>
             <span class="city" itemprop="addressLocality"><?= $escaper->escapeHtml($city); ?></span>
