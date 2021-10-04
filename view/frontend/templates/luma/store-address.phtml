@@ -11,15 +11,8 @@ use Magento\Framework\Escaper;
 $storeInfo = $block->getData('viewModelStoreInfo');
 ?>
 
-<address class="storeinfo not-italic">
-    <?php if ($phone = $storeInfo->getPhoneNumber()): ?>
-        <a class="phone" href="tel:<?= $escaper->escapeHtml($phone); ?>"><?= $escaper->escapeHtml($phone); ?></a><br>
-    <?php endif; ?>
-    <?php if ($email = $storeInfo->getEmail()): ?>
-        <a class="email" href="mailto:<?= $escaper->escapeHtml($email); ?>"><?= $escaper->escapeHtml($email); ?></a><br>
-    <?php endif; ?>
-
-    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+<address class="storeinfo">
+    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
             <span itemprop="streetAddress">
                 <span class="street-address-1"><?= $escaper->escapeHtml($address1); ?></span>
@@ -34,5 +27,15 @@ $storeInfo = $block->getData('viewModelStoreInfo');
         <?php if ($city = $storeInfo->getCity()): ?>
             <span class="city" itemprop="addressLocality"><?= $escaper->escapeHtml($city); ?></span>
         <?php endif; ?>
-    </span>
+    </div>
+    <?php if ($phone = $storeInfo->getPhoneNumber()): ?>
+        <div>
+            <a class="phone" href="tel:<?= $escaper->escapeHtml($phone); ?>"><?= $escaper->escapeHtml($phone); ?></a>
+        </div>
+    <?php endif; ?>
+    <?php if ($email = $storeInfo->getEmail()): ?>
+        <div>
+            <a class="email" href="mailto:<?= $escaper->escapeHtml($email); ?>"><?= $escaper->escapeHtml($email); ?></a>
+        </div>
+    <?php endif; ?>
 </address>
