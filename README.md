@@ -1,10 +1,11 @@
 # Siteation - Magento 2 Module Store Info
 
-[![Packagist Version](https://img.shields.io/packagist/v/siteation/magento2-module-storeinfo)](https://packagist.org/packages/siteation/magento2-module-storeinfo)
-![Supported Magento Versions](https://img.shields.io/badge/magento-%202.3_|_2.4-brightgreen.svg?logo=magento&longCache=true)
-[![Compatible with Hyva](https://img.shields.io/badge/Compatible_with-Hyva-3df0af.svg?longCache=true)](https://hyva.io/)
+[![Packagist Version](https://img.shields.io/packagist/v/siteation/magento2-module-storeinfo?style=for-the-badge)](https://packagist.org/packages/siteation/magento2-module-storeinfo)
+![Supported Magento Versions](https://img.shields.io/badge/magento-%202.3_|_2.4-brightgreen.svg?logo=magento&longCache=true&style=for-the-badge)
+[![Hyvä Themes Supported](https://img.shields.io/badge/Hyva_Themes-Supported-3df0af.svg?longCache=true&style=for-the-badge)](https://hyva.io/)
+![License](https://img.shields.io/github/license/Siteation/magento2-module-storeinfo?color=%23234&style=for-the-badge)
 
-This Magento 2 module add the option to get the store info with ease.
+This Magento 2 module adds the option to get the store information with ease.
 
 So you can get the store phone number from the Stores > Config.
 Instead using static block or hard code it in your template directly.
@@ -18,7 +19,7 @@ composer require siteation/magento2-module-storeinfo
 bin/magento setup:upgrade
 ```
 
-> This Module require Magento 2.3 or higher!
+> This Module requires Magento 2.3 or higher!
 > For more requirements see the `composer.json`.
 
 ## How to use
