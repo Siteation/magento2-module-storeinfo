@@ -36,7 +36,7 @@ And also comes with [schema tags](https://schema.org/) to enrich the Contact dat
 To load the default store address block use 1 of the following xml samples
 in your template.
 
-<details open><summary>Hyva Sample</summary>
+<details open><summary>Hyva - XML Sample</summary>
 
 ```xml
 <referenceBlock name="footer-content">
@@ -50,7 +50,7 @@ in your template.
 
 </details>
 
-<details><summary>Luma Sample</summary>
+<details><summary>Luma - XML Sample</summary>
 
 ```xml
 <referenceContainer name="footer">
@@ -71,11 +71,57 @@ in your template.
 
 First get the viewModal in your template.
 
-_See the previous sample for the xml solution._
-_And the `store-address.phtml` for on how to call the viewModal._
+<details open><summary>Hyva - Sample Phtml file head</summary>
 
-By default you can get the following the basic contact data
-found in `general/store_information` and `trans_email/ident_general`.
+```php
+<?php
+declare(strict_types=1);
 
-[See the Wiki](https://github.com/Siteation/magento2-module-storeinfo/wiki)
-on some nice use cases.
+use Hyva\Theme\Model\ViewModelRegistry;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+use Siteation\StoreInfo\ViewModel\StoreInfo;
+
+/** @var ViewModelRegistry $viewModels */
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+/** @var StoreInfo $storeInfo */
+$storeInfo = $viewModels->require(StoreInfo::class);
+```
+
+</details>
+
+<details><summary>Luma - Sample Phtml file head</summary>
+
+_For Luma templates,_
+_see the previous sample for the xml needed to load the viewModal._
+
+```php
+<?php
+declare(strict_types=1);
+
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\Escaper;
+
+/** @var Template $block */
+/** @var Escaper $escaper */
+
+/** @var Siteation\StoreInfo\ViewModel\StoreInfo $storeInfo */
+$storeInfo = $block->getData('viewModelStoreInfo');
+```
+
+</details>
+
+After this you can load any Magento StoreInfo field as text in your phtml;
+
+```php
+<?php
+// Get specific predefined store info field
+$storeInfo->getPostcode();
+$storeInfo->getEmail();
+
+// Get the same as above, using the global functions
+$storeInfo->getStoreInfo('postcode'); // 'general/store_information/%s'
+$storeInfo->getTransEmail('email'); // 'trans_email/ident_general/%s'
+```
