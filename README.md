@@ -36,8 +36,23 @@ And also comes with [schema tags](https://schema.org/) to enrich the Contact dat
 To load the default store address block use 1 of the following xml samples
 in your template.
 
+<details open><summary>Hyva Sample</summary>
+
 ```xml
-<!-- Luma Sample -->
+<referenceBlock name="footer-content">
+    <block
+        name="footer.store.info"
+        as="footer-store-info"
+        template="Siteation_StoreInfo::hyva/store-address.phtml"
+    />
+</referenceBlock>
+```
+
+</details>
+
+<details><summary>Luma Sample</summary>
+
+```xml
 <referenceContainer name="footer">
     <block name="footer.store.info"
         as="footer-store-info"
@@ -48,22 +63,16 @@ in your template.
         </arguments>
     </block>
 </referenceContainer>
-<!-- Hyva Sample -->
-<referenceContainer name="footer">
-    <block
-        name="footer.store.info"
-        as="footer-store-info"
-        template="Siteation_StoreInfo::hyva/store-address.phtml"
-    />
-</referenceContainer>
 ```
+
+</details>
 
 ### Get Store info in your own block.
 
-First get the viewmodal in your template.
+First get the viewModal in your template.
 
 _See the previous sample for the xml solution._
-_And the `store-address.phtml` for on how to call the viewmodal._
+_And the `store-address.phtml` for on how to call the viewModal._
 
 By default you can get the following the basic contact data
 found in `general/store_information` and `trans_email/ident_general`.
