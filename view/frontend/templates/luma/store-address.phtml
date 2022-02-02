@@ -44,7 +44,7 @@ $storeInfo = $block->getData('viewModelStoreInfo');
             <a class="email" href="mailto:<?= $escaper->escapeHtml($email); ?>"><?= $escaper->escapeHtml($email); ?></a>
         </div>
     <?php endif; ?>
-    <?php if ($vat = $storeInfo->getVatNumber()): ?>
-        <div class="vat-number"><?= $escaper->escapeHtml($vat); ?></div>
+    <?php if ($vat_number = $storeInfo->getVatNumber()): ?>
+        <div class="vat-number"><?= $escaper->escapeHtml(__('VAT-Number: %1', $vat_number)); ?></div>
     <?php endif; ?>
 </address>
