@@ -4,18 +4,50 @@ declare(strict_types=1);
 
 namespace Siteation\StoreInfo\ViewModel;
 
+use Magento\Directory\Model\CountryFactory;
+use Magento\Directory\Model\ResourceModel\Region\Collection  as RegionCollection;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Magento\Store\Model\ScopeInterface;
 
 class StoreInfo implements ArgumentInterface
 {
+    protected $countryFactory;
+    protected $regionCollection;
     protected $scopeConfig;
 
     public function __construct(
+        CountryFactory $countryFactory,
+        RegionCollection $regionCollection,
         ScopeConfigInterface $scopeConfig
     ) {
+        $this->countryFactory = $countryFactory;
+        $this->regionCollection = $regionCollection;
         $this->scopeConfig = $scopeConfig;
+    }
+
+    private function getCountryNameById($countryId): string
+    {
+        $countryName = '';
+        $country = $this->countryFactory->create()->loadByCode($countryId);
+
+        if ($country) {
+            $countryName = $country->getName();
+        }
+
+        return $countryName;
+    }
+
+    private function getRegionNameById(int $id): string
+    {
+        $regionName = '';
+        $region = $this->regionCollection->getItemById($id);
+
+        if ($region) {
+            $regionName = $region->getName();
+        }
+
+        return $regionName;
     }
 
     /**
@@ -67,15 +99,30 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('city');
     }
 
-    public function getCountryID(): string
+    public function getCountryId(): string
     {
         return (string) $this->getStoreInfo('country_id');
     }
 
-    // TODO: get region name with region_id
+    public function getCountry(): string
+    {
+        return (string) $this->getCountryNameById($this->getCountryId());
+    }
+
     public function getRegionId(): string
     {
         return (string) $this->getStoreInfo('region_id');
+    }
+
+    public function getRegion(): string
+    {
+        $id = $this->getRegionId();
+
+        if (is_numeric($id)) {
+            return (string) $this->getRegionNameById(intval($id));
+        }
+
+        return (string) $id;
     }
 
     public function getStreetLine1(): string
