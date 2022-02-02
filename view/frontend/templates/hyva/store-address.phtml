@@ -14,7 +14,7 @@ use Siteation\StoreInfo\ViewModel\StoreInfo;
 $storeInfo = $viewModels->require(StoreInfo::class);
 ?>
 
-<address class="storeinfo not-italic">
+<address class="storeinfo not-italic" itemscope itemtype="https://schema.org/Organization">
     <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
             <span itemprop="streetAddress">

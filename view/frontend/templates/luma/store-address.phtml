@@ -11,7 +11,7 @@ use Magento\Framework\Escaper;
 $storeInfo = $block->getData('viewModelStoreInfo');
 ?>
 
-<address class="storeinfo">
+<address class="storeinfo" itemscope itemtype="https://schema.org/Organization">
     <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
             <span itemprop="streetAddress">
