@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.1.0] - 2022-02-02
+### Added
+- Support for store name
+- Support for country name
+- Support for region name
+- Support for vat number
+
+### Changed
+- Readme with docs for basis usages
+
 ## [1.0.4] - 2021-10-04
 ### Fixes
 - Sample templates, address order
