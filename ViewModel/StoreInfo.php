@@ -82,6 +82,11 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('street_line2');
     }
 
+    public function getVatNumber(): string
+    {
+        return (string) $this->getStoreInfo('merchant_vat_number');
+    }
+
     /** @deprecated use `getEmail` instead, will be removed in v2 */
     public function getEmailUs(): string
     {
