@@ -67,6 +67,12 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('city');
     }
 
+    public function getCountryID(): string
+    {
+        return (string) $this->getStoreInfo('country_id');
+    }
+
+    // TODO: get region name with region_id
     public function getRegionId(): string
     {
         return (string) $this->getStoreInfo('region_id');
