@@ -74,6 +74,11 @@ class StoreInfo implements ArgumentInterface
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 
+    public function getStoreName(): string
+    {
+        return (string) $this->getStoreInfo('name');
+    }
+
     public function getPhoneNumber(): string
     {
         return (string) $this->getStoreInfo('phone');

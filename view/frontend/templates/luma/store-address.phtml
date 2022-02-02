@@ -12,6 +12,9 @@ $storeInfo = $block->getData('viewModelStoreInfo');
 ?>
 
 <address class="storeinfo" itemscope itemtype="https://schema.org/Organization">
+    <?php if ($storeName = $storeInfo->getStoreName()): ?>
+        <div itemprop="name"><?= $escaper->escapeHtml($storeName); ?></div>
+    <?php endif; ?>
     <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
             <span itemprop="streetAddress">

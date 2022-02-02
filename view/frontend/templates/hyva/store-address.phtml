@@ -15,7 +15,10 @@ $storeInfo = $viewModels->require(StoreInfo::class);
 ?>
 
 <address class="storeinfo not-italic" itemscope itemtype="https://schema.org/Organization">
-    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <?php if ($storeName = $storeInfo->getStoreName()): ?>
+        <div itemprop="name" class="mb-2 text-md leading-5 font-semibold"><?= $escaper->escapeHtml($storeName); ?></div>
+    <?php endif; ?>
+    <div itemprop="address" class="mb-2" itemscope itemtype="https://schema.org/PostalAddress">
         <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
             <span itemprop="streetAddress">
                 <span class="street-address-1"><?= $escaper->escapeHtml($address1); ?></span>
