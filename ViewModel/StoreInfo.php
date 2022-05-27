@@ -24,10 +24,12 @@ class StoreInfo implements ArgumentInterface
         $this->scopeConfig = $scopeConfig;
     }
 
-    private function getCountryNameById($countryId): string
+    private function getCountryNameById(string $countryId): string
     {
         $countryName = '';
-        $country = $this->countryFactory->create()->loadByCode($countryId);
+        $country = $countryId
+            ? $this->countryFactory->create()->loadByCode($countryId)
+            : '';
 
         if ($country) {
             $countryName = $country->getName();
