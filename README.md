@@ -19,7 +19,7 @@ composer require siteation/magento2-module-storeinfo
 bin/magento setup:upgrade
 ```
 
-> This Module requires Magento 2.3 or higher!
+> **Note** This Module requires Magento 2.3 or higher!
 > For more requirements see the `composer.json`.
 
 ## How to use
