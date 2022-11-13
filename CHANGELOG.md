@@ -9,9 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2022-05-27
 ### Added
 - `getFormattedPhoneNumber` for using safe a version, without spaces and non numeric values
+- `getEmailName`, `getSalesEmail`, `getSalesEmailName`, `getSupportEmail`, `getSupportEmailName` for more email control
 
 ### Changed
 - Cleanup country logic by replacing `CountryFactory` for `CountryInformationAcquirerInterface`
+- Renamed `getTransEmail` to `getStoreEmail`
+- Allow email group as option in `getStoreEmail` to get the other email options like; sales, support and custom
 
 ### Fixes
 - Missing dependencies in composer, closes [#8](https://github.com/Siteation/magento2-module-storeinfo/issues/8)

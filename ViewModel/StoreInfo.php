@@ -52,11 +52,12 @@ class StoreInfo implements ArgumentInterface
      * Get store emails
      *
      * @param string $attribute
+     * @param string $attributeGroup
      * @return mixed
      */
-    public function getTransEmail(string $attribute)
+    public function getStoreEmail(string $attribute, $attributeGroup = "ident_general")
     {
-        $path = sprintf('trans_email/ident_general/%s', $attribute);
+        $path = sprintf('trans_email/%2$s/%1$s', $attribute, $attributeGroup);
         return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 
@@ -73,11 +74,6 @@ class StoreInfo implements ArgumentInterface
     public function getFormattedPhoneNumber(): string
     {
         return (string) preg_replace("/[^0-9+]/", "", $this->getPhoneNumber());
-    }
-
-    public function getEmail(): string
-    {
-        return (string) $this->getTransEmail('email');
     }
 
     public function getOpeningHours(): string
@@ -138,9 +134,47 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('merchant_vat_number');
     }
 
+    // Email
+    public function getEmail(): string
+    {
+        return (string) $this->getStoreEmail('email');
+    }
+
+    public function getEmailName(): string
+    {
+        return (string) $this->getStoreEmail('name');
+    }
+
+    public function getSalesEmail(): string
+    {
+        return (string) $this->getStoreEmail('email', 'ident_sales');
+    }
+
+    public function getSalesEmailName(): string
+    {
+        return (string) $this->getStoreEmail('name', 'ident_sales');
+    }
+
+    public function getSupportEmail(): string
+    {
+        return (string) $this->getStoreEmail('email', 'ident_support');
+    }
+
+    public function getSupportEmailName(): string
+    {
+        return (string) $this->getStoreEmail('name', 'ident_support');
+    }
+
     /** @deprecated use `getEmail` instead, will be removed in v2 */
     public function getEmailUs(): string
     {
         return (string) $this->getTransEmail('email');
+    }
+
+    /** @deprecated use `getStoreEmail` instead, will be removed in v2 */
+    public function getTransEmail(string $attribute)
+    {
+        $path = sprintf('trans_email/ident_general/%s', $attribute);
+        return $this->scopeConfig->getValue($path, ScopeInterface::SCOPE_STORE);
     }
 }
