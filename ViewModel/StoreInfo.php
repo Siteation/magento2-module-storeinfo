@@ -2,40 +2,26 @@
 
 namespace Siteation\StoreInfo\ViewModel;
 
-use Magento\Directory\Model\CountryFactory;
-use Magento\Directory\Model\ResourceModel\Region\Collection  as RegionCollection;
+use Magento\Directory\Api\CountryInformationAcquirerInterface as CountryInfoAcq;
+use Magento\Directory\Model\ResourceModel\Region\Collection as RegionCollection;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
 
 class StoreInfo implements ArgumentInterface
 {
-    protected $countryFactory;
-    protected $regionCollection;
-    protected $scopeConfig;
+    private $scopeConfig;
+    private $countryInfoAcq;
+    private $regionCollection;
 
     public function __construct(
-        CountryFactory $countryFactory,
+        ScopeConfigInterface $scopeConfig,
         RegionCollection $regionCollection,
-        ScopeConfigInterface $scopeConfig
+        CountryInfoAcq $countryInfoAcq
     ) {
-        $this->countryFactory = $countryFactory;
-        $this->regionCollection = $regionCollection;
         $this->scopeConfig = $scopeConfig;
-    }
-
-    private function getCountryNameById(string $countryId): string
-    {
-        $countryName = '';
-        $country = $countryId
-            ? $this->countryFactory->create()->loadByCode($countryId)
-            : '';
-
-        if ($country) {
-            $countryName = $country->getName();
-        }
-
-        return $countryName;
+        $this->countryInfoAcq = $countryInfoAcq;
+        $this->regionCollection = $regionCollection;
     }
 
     private function getRegionNameById(int $id): string
@@ -84,6 +70,11 @@ class StoreInfo implements ArgumentInterface
         return (string) $this->getStoreInfo('phone');
     }
 
+    public function getFormattedPhoneNumber(): string
+    {
+        return (string) preg_replace("/[^0-9+]/", "", $this->getPhoneNumber());
+    }
+
     public function getEmail(): string
     {
         return (string) $this->getTransEmail('email');
@@ -111,7 +102,9 @@ class StoreInfo implements ArgumentInterface
 
     public function getCountry(): string
     {
-        return (string) $this->getCountryNameById($this->getCountryId());
+        $countryId = (string) $this->getCountryId();
+        $countryInfo = $this->countryInfoAcq->getCountryInfo($countryId);
+        return $countryInfo->getFullNameLocale();
     }
 
     public function getRegionId(): string
