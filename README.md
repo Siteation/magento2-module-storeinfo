@@ -119,9 +119,9 @@ After this you can load any Magento StoreInfo field as text in your phtml;
 <?php
 // Get specific predefined store info field
 $storeInfo->getPostcode();
-$storeInfo->getEmail();
+$storeInfo->getSalesEmail();
 
 // Get the same as above, using the global functions
 $storeInfo->getStoreInfo('postcode'); // 'general/store_information/%s'
-$storeInfo->getTransEmail('email'); // 'trans_email/ident_general/%s'
+$storeInfo->getStoreEmail('email', 'ident_sales'); // 'trans_email/%2$s/%1$s'
 ```

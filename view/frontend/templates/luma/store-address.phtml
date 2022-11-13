@@ -10,35 +10,40 @@ use Magento\Framework\Escaper;
 $storeInfo = $block->getData('viewModelStoreInfo');
 ?>
 
-<address class="storeinfo" itemscope itemtype="https://schema.org/Organization">
-    <?php if ($storeName = $storeInfo->getStoreName()): ?>
-        <div itemprop="name"><?= $escaper->escapeHtml($storeName); ?></div>
-    <?php endif; ?>
-    <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-        <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
-            <span itemprop="streetAddress">
-                <span class="street-address-1"><?= $escaper->escapeHtml($address1); ?></span>
-                <?php if ($address2 = $storeInfo->getStreetLine2()): ?>
-                    <span class="street-address-2"><?= $escaper->escapeHtml($address2); ?></span>
-                <?php endif; ?>
-            </span><br>
+<div class="storeinfo">
+    <address class="not-italic" itemscope itemtype="https://schema.org/Organization">
+        <?php if ($storeName = $storeInfo->getStoreName()): ?>
+            <div itemprop="name"><?= $escaper->escapeHtml($storeName); ?></div>
         <?php endif; ?>
-        <?php if ($postcode = $storeInfo->getPostcode()): ?>
-            <span class="postcode" itemprop="postalCode"><?= $escaper->escapeHtml($postcode); ?></span>
-        <?php endif; ?>
-        <?php if ($city = $storeInfo->getCity()): ?>
-            <span class="city" itemprop="addressLocality"><?= $escaper->escapeHtml($city); ?></span><br>
-        <?php endif; ?>
-        <?php if ($country = $storeInfo->getCountry()): ?>
-            <?php if ($region = $storeInfo->getRegion()): ?>
-                <span class="region" itemprop="addressRegion"><?= $escaper->escapeHtml($region); ?>,</span>
+        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <?php if ($address1 = $storeInfo->getStreetLine1()): ?>
+                <span itemprop="streetAddress">
+                    <span class="street-address-1"><?= $escaper->escapeHtml($address1); ?></span>
+                    <?php if ($address2 = $storeInfo->getStreetLine2()): ?>
+                        <span class="street-address-2"><?= $escaper->escapeHtml($address2); ?></span>
+                    <?php endif; ?>
+                </span><br>
             <?php endif; ?>
-            <span class="country" itemprop="addressCountry"><?= $escaper->escapeHtml($country); ?></span>
-        <?php endif; ?>
-    </div>
+            <?php if ($postcode = $storeInfo->getPostcode()): ?>
+                <span class="postcode" itemprop="postalCode"><?= $escaper->escapeHtml($postcode); ?></span>
+            <?php endif; ?>
+            <?php if ($city = $storeInfo->getCity()): ?>
+                <span class="city" itemprop="addressLocality"><?= $escaper->escapeHtml($city); ?></span><br>
+            <?php endif; ?>
+            <?php if ($country = $storeInfo->getCountry()): ?>
+                <?php if ($region = $storeInfo->getRegion()): ?>
+                    <span class="region" itemprop="addressRegion"><?= $escaper->escapeHtml($region); ?>,</span>
+                <?php endif; ?>
+                <span class="country" itemprop="addressCountry"><?= $escaper->escapeHtml($country); ?></span>
+            <?php endif; ?>
+        </div>
+    </address>
     <?php if ($phone = $storeInfo->getPhoneNumber()): ?>
         <div>
-            <a class="phone" href="tel:<?= $escaper->escapeHtml($phone); ?>"><?= $escaper->escapeHtml($phone); ?></a>
+            <a
+                class="phone"
+                href="tel:<?= $escaper->escapeHtmlAttr($storeInfo->getFormattedPhoneNumber()) ?>"
+            ><?= $escaper->escapeHtml($phone); ?></a>
         </div>
     <?php endif; ?>
     <?php if ($email = $storeInfo->getEmail()): ?>
@@ -49,4 +54,4 @@ $storeInfo = $block->getData('viewModelStoreInfo');
     <?php if ($vat_number = $storeInfo->getVatNumber()): ?>
         <div class="vat-number"><?= $escaper->escapeHtml(__('VAT-Number: %1', $vat_number)); ?></div>
     <?php endif; ?>
-</address>
+</div>
