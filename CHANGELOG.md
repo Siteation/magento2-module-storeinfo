@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixes
+- Empty getCountry error [#9](https://github.com/Siteation/magento2-module-storeinfo/issues/9)
+
 ## [1.2.0] - 2022-05-27
 ### Added
 - `getFormattedPhoneNumber` for using safe a version, without spaces and non numeric values

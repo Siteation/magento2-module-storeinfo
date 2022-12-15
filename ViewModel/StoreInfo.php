@@ -99,8 +99,14 @@ class StoreInfo implements ArgumentInterface
     public function getCountry(): string
     {
         $countryId = (string) $this->getCountryId();
-        $countryInfo = $this->countryInfoAcq->getCountryInfo($countryId);
-        return $countryInfo->getFullNameLocale();
+        $countryName = '';
+        
+        if ($countryId) {
+            $countryInfo = $this->countryInfoAcq->getCountryInfo($countryId);
+            $countryName = $countryInfo->getFullNameLocale();
+        }
+
+        return $countryName;
     }
 
     public function getRegionId(): string
