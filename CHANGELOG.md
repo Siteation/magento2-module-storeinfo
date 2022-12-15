@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2022-12-15
 ### Fixes
 - Empty getCountry error [#9](https://github.com/Siteation/magento2-module-storeinfo/issues/9)
 
