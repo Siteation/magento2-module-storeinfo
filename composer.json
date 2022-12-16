@@ -23,10 +23,13 @@
   "require": {
     "magento/framework": "^102.0|^103.0",
     "magento/module-directory": "^100.3|^100.4",
-    "magento/module-store": "^101.0|^101.1"
+    "magento/module-store": "^101.0|^101.1",
+    "hyva-themes/magento2-theme-module": "^1.1"
   },
   "autoload": {
-    "files": ["registration.php"],
+    "files": [
+      "registration.php"
+    ],
     "psr-4": {
       "Siteation\\StoreInfo\\": ""
     }
