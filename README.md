@@ -15,8 +15,8 @@ Instead using static block or hard code it in your template directly.
 Install the package via;
 
 ```bash
-composer require siteation/magento2-module-storeinfo
-bin/magento setup:upgrade
+composer require siteation/magento2-storeinfo
+bin/magento module:enable Siteation_StoreInfo
 ```
 
 > **Note** This Module requires Magento 2.3 or higher!
