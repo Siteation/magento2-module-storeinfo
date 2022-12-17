@@ -1,6 +1,6 @@
 {
   "name": "siteation/magento2-storeinfo",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "license": "MIT",
   "type": "magento2-module",
   "description": "Get your store information with ease",
