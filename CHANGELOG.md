@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2022-12-17
+### Changed
+- Renamed composer name from `siteation/magento2-module-storeinfo` to `siteation/magento2-storeinfo`
+
 ## [1.2.1] - 2022-12-15
 ### Fixes
 - Empty getCountry error [#9](https://github.com/Siteation/magento2-module-storeinfo/issues/9)
