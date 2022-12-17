@@ -1,4 +1,4 @@
-# Siteation - Magento 2 Module Store Info
+# Siteation - Magento 2 Store Info
 
 [![Packagist Version](https://img.shields.io/packagist/v/siteation/magento2-module-storeinfo?style=for-the-badge)](https://packagist.org/packages/siteation/magento2-module-storeinfo)
 ![Supported Magento Versions](https://img.shields.io/badge/magento-%202.3_|_2.4-brightgreen.svg?logo=magento&longCache=true&style=for-the-badge)
